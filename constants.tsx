@@ -14,8 +14,8 @@ export const NAV_ITEMS: NavItem[] = [
 
 export const PRICING_TIERS: PricingTier[] = [
   {
-    name: 'Pro',
-    price: '$4.99/yr',
+    name: 'Individual',
+    price: '$1.99/yr',
     description: 'The ultimate tool for waste-conscious households. Includes a 1-month free trial.',
     features: [
       '1 Month Free Trial included',

@@ -1,11 +1,19 @@
-
 import { GoogleGenAI } from "@google/genai";
 
-const API_KEY = process.env.API_KEY || "";
+// Safeguard process.env access for browser environments
+const getApiKey = (): string => {
+  try {
+    return (typeof process !== 'undefined' && process.env) ? process.env.API_KEY || "" : "";
+  } catch {
+    return "";
+  }
+};
+
+const API_KEY = getApiKey();
 
 export const getSmartSaverAdvice = async (inventory: string): Promise<string> => {
   if (!API_KEY) {
-    return "The WasteLess AI Assistant is currently in demo mode. (API Key not configured)";
+    return "The WasteLess AI Assistant is currently in demo mode. (API Key not configured in environment)";
   }
 
   const ai = new GoogleGenAI({ apiKey: API_KEY });
@@ -17,7 +25,6 @@ export const getSmartSaverAdvice = async (inventory: string): Promise<string> =>
       Keep it professional, encouraging, and environmentally focused.`,
       config: {
         temperature: 0.7,
-        maxOutputTokens: 500,
       }
     });
 
