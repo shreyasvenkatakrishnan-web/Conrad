@@ -6,16 +6,17 @@ import { PRICING_TIERS } from '../constants';
 const Pricing: React.FC = () => {
   return (
     <div className="pb-24">
-      <section className="py-24 text-center">
+      {/* Standardized Header Section - Matching Mission, Product, and How It Works */}
+      <section className="bg-emerald-950 py-24 text-center text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-6xl font-extrabold text-emerald-950 mb-6">Invest in Your Future</h1>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">Invest in Your Future</h1>
+          <p className="text-xl text-emerald-200 max-w-2xl mx-auto leading-relaxed">
             Choose a plan that fits your household's needs. Every plan contributes to our global food recovery initiatives.
           </p>
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
         <div className={`grid gap-8 ${PRICING_TIERS.length === 2 ? 'lg:grid-cols-2 max-w-5xl mx-auto' : 'lg:grid-cols-3'}`}>
           {PRICING_TIERS.map((tier) => {
             const [priceVal, period] = tier.price.split('/');
