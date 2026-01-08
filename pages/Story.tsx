@@ -39,7 +39,7 @@ const Story: React.FC = () => {
               </div>
               <div className="relative group">
                 <img 
-                  src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=800" 
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtD9x_Q4OjtE5YjLjgg4pDoc5DxdEiZBYC4A&s" 
                   alt="Technology and Community" 
                   className="rounded-2xl shadow-xl transition-transform group-hover:scale-105 duration-500" 
                 />
