@@ -5,21 +5,11 @@ import { Globe, Target, ShieldCheck } from 'lucide-react';
 const Story: React.FC = () => {
   return (
     <div className="pb-24">
-      {/* Hero Section */}
-      <section className="relative h-[450px] flex items-center justify-center bg-emerald-900 overflow-hidden">
-        <div className="absolute inset-0 opacity-40">
-          <img 
-            src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000" 
-            alt="Sustainability and Growth" 
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="relative z-10 text-center px-4">
-          <span className="inline-block px-4 py-1.5 mb-4 text-sm font-bold tracking-widest uppercase bg-emerald-500/20 text-emerald-300 rounded-full border border-emerald-500/30">
-            Cousins in STEM
-          </span>
-          <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-4">Our Story</h1>
-          <p className="text-emerald-100 text-xl max-w-2xl mx-auto font-medium">
+      {/* Standardized Header Section - Matching Mission, Product, and How It Works */}
+      <section className="bg-emerald-950 py-24 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">Our Story</h1>
+          <p className="text-xl text-emerald-200 max-w-4xl mx-auto leading-relaxed">
             Building a bridge between technology and global food security.
           </p>
         </div>
@@ -34,7 +24,7 @@ const Story: React.FC = () => {
           
           <div className="space-y-12 text-slate-600 leading-relaxed text-lg">
             <p>
-              We are cousins, both deeply passionate about STEM and driven by a shared goal to help our community. Our journey with Redooste started with a simple but frustrating realization: food waste is a silent crisis in every household. We watched as fresh produce and staples like cereal sat in our pantries, forgotten until they expired, eventually destined for the trash.
+              Our founders, Sujit Sathyamurthi and Shreyas Venkatakrishnan, are deeply passionate about STEM and driven by a shared goal to help the community. Our journey with Redooste started with a simple but frustrating realization: food waste is a silent crisis in every household. We noticed how fresh produce and other items like cereal sat in our pantries, left forgotten until they expired and were thrown away
             </p>
 
             <div className="grid md:grid-cols-2 gap-12 items-center my-16 bg-emerald-50 p-8 rounded-[2.5rem] border border-emerald-100">
@@ -57,11 +47,11 @@ const Story: React.FC = () => {
             </div>
 
             <p>
-              Combining our past experiences in coding and app building, we set out to develop <strong>WasteLess</strong>. Throughout high school, our studies in Computer Science and Environmental Science provided the scientific foundation we needed. We learned how decomposing food generates significant greenhouse gas emissions, turning a household annoyance into a serious climate issue.
+              Combining our past experiences in coding and app building as well as our scientific foundation, we set out to develop <strong>WasteLess</strong>. We learned how decomposing food generates significant greenhouse gas emissions, turning a household annoyance into a serious climate issue.
             </p>
 
             <p className="text-center font-medium text-emerald-800">
-              Today, WasteLess is more than just a software; it's our contribution to a worldwide effort to combat food waste. We believe that by making it easier for households to track their inventory, we can create a measurable impact on the health of our planet and our communities.
+              Today, WasteLess is more than just a software; it's our contribution to a worldwide effort to combat food waste. We believe that by making it easier for households and retailers to track their inventory, we can create a measurable impact on the health of our planet and our communities.
             </p>
           </div>
         </div>
@@ -109,7 +99,7 @@ const Story: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
         <div className="bg-emerald-900 rounded-[3rem] p-12 text-center text-white relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/20 rounded-full blur-3xl -mr-32 -mt-32"></div>
-          <h2 className="text-3xl font-bold mb-6">Empowering every kitchen with the power of STEM.</h2>
+          <h2 className="text-3xl font-bold mb-6">Promoting smarter food management with the power of STEM.</h2>
         </div>
       </section>
     </div>

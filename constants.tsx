@@ -21,7 +21,7 @@ export const PRICING_TIERS: PricingTier[] = [
       '1 Month Free Trial included',
       'Unlimited grocery accounts',
       'Duplicate purchase alerts',
-      'AI-powered recipe suggestions',
+      'Smart recipe suggestions',
       'Web integration',
       'Household sharing'
     ],

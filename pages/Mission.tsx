@@ -1,25 +1,22 @@
 
 import React from 'react';
 import { Target, Heart, Globe, AlertTriangle, Zap, ShoppingBag, ShieldCheck } from 'lucide-react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 
-const data = [
-  { name: 'Households', value: 43 },
-  { name: 'Retail', value: 18 },
-  { name: 'Production', value: 24 },
-  { name: 'Logistics', value: 15 },
+const voxData = [
+  { name: 'Food service', value: 163.1, color: '#90b77d' },
+  { name: 'In homes', value: 160.9, color: '#2d511a' },
+  { name: 'Retail', value: 26.5, color: '#5b7d41' },
 ];
-
-const COLORS = ['#10b981', '#34d399', '#6ee7b7', '#a7f3d0'];
 
 const Mission: React.FC = () => {
   return (
     <div className="pb-24">
-      {/* Header */}
-      <section className="bg-emerald-50 py-20 border-b border-emerald-100">
+      {/* Header - Matching How It Works style */}
+      <section className="bg-emerald-950 py-24 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-emerald-950 mb-6">Our Mission</h1>
-          <p className="text-xl text-emerald-800 max-w-4xl mx-auto leading-relaxed">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">Our Mission</h1>
+          <p className="text-xl text-emerald-200 max-w-4xl mx-auto leading-relaxed">
             Our mission is to help people reduce food waste through smart and automated grocery tracking, saving money and protecting the environment.
           </p>
         </div>
@@ -56,28 +53,60 @@ const Mission: React.FC = () => {
           </div>
 
           <div className="bg-white p-8 rounded-[2rem] shadow-xl border border-emerald-50 lg:sticky lg:top-24">
-            <h3 className="text-xl font-bold text-emerald-900 mb-6 text-center">Food Waste Distribution (%)</h3>
-            <div className="h-[300px]">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={data}>
-                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
-                  <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fill: '#64748b', fontSize: 12}} />
-                  <YAxis axisLine={false} tickLine={false} tick={{fill: '#64748b', fontSize: 12}} />
-                  <Tooltip 
-                    cursor={{fill: '#f0fdf4'}}
-                    contentStyle={{borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)'}}
-                  />
-                  <Bar dataKey="value" radius={[8, 8, 0, 0]}>
-                    {data.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                    ))}
-                  </Bar>
-                </BarChart>
-              </ResponsiveContainer>
+            <div className="mb-6">
+              <h3 className="text-2xl font-black text-emerald-950 mb-1 leading-tight">Where food gets wasted in the US</h3>
+              <p className="text-sm text-slate-400 font-medium italic">Most consumer-level food waste occurs in the home or in food service.</p>
             </div>
-            <p className="text-xs text-slate-400 mt-6 text-center">
-              Source: Global Sustainability Index 2024. Households remain the largest contributors.
-            </p>
+            
+            <div className="h-[350px] relative">
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={voxData}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={0}
+                    outerRadius={120}
+                    paddingAngle={0}
+                    dataKey="value"
+                    startAngle={90}
+                    endAngle={-270}
+                  >
+                    {voxData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} stroke="#fff" strokeWidth={2} />
+                    ))}
+                  </Pie>
+                  <Tooltip 
+                    contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)', fontSize: '12px', fontWeight: 'bold' }}
+                    formatter={(value: number) => [`${value} lbs`, 'Annual Waste']}
+                  />
+                </PieChart>
+              </ResponsiveContainer>
+              
+              {/* Manual Labels for Fidelity to the Image aesthetic */}
+              <div className="absolute top-[40%] right-[5%] text-right pointer-events-none">
+                <p className="text-[11px] font-black text-slate-900 uppercase">Food service</p>
+                <p className="text-xs font-bold text-slate-600">163.1 lbs</p>
+              </div>
+              <div className="absolute bottom-[20%] left-[10%] text-left pointer-events-none">
+                <p className="text-[11px] font-black text-slate-900 uppercase">In homes</p>
+                <p className="text-xs font-bold text-slate-600">160.9 lbs</p>
+              </div>
+              <div className="absolute top-[18%] left-[42%] text-left pointer-events-none">
+                <p className="text-[11px] font-black text-slate-900 uppercase">Retail</p>
+                <p className="text-xs font-bold text-slate-600">26.5 lbs</p>
+              </div>
+            </div>
+
+            <div className="space-y-4 pt-6 border-t border-slate-100">
+              <p className="text-[10px] text-slate-400 leading-relaxed">
+                Figures represent annual food waste per person. "Retail" refers to supermarkets and convenience stores, specialized stores such as greengrocers and butchers, and outdoor markets and stalls. This data set doesn't include food lost on the farm or in processing, transport, or storage.
+              </p>
+              <div className="flex justify-between items-center text-[10px] font-bold text-slate-300 uppercase tracking-widest">
+                <span>Source: UNEP / Vox</span>
+                <span className="text-emerald-500 font-black">Interactive Data</span>
+              </div>
+            </div>
           </div>
         </div>
 
